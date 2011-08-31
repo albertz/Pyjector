@@ -1,0 +1,261 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23587954140E8B660057D08E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23587953140E8B660057D08E /* Cocoa.framework */; };
+		2358795E140E8B660057D08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2358795C140E8B660057D08E /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		23587950140E8B660057D08E /* Pyjector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pyjector.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		23587953140E8B660057D08E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		23587956140E8B660057D08E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		23587957140E8B660057D08E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		23587958140E8B660057D08E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2358795B140E8B660057D08E /* Pyjector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pyjector-Info.plist"; sourceTree = "<group>"; };
+		2358795D140E8B660057D08E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2358795F140E8B660057D08E /* Pyjector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pyjector-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2358794D140E8B660057D08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23587954140E8B660057D08E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23587945140E8B660057D08E = {
+			isa = PBXGroup;
+			children = (
+				23587959140E8B660057D08E /* Pyjector */,
+				23587952140E8B660057D08E /* Frameworks */,
+				23587951140E8B660057D08E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23587951140E8B660057D08E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23587950140E8B660057D08E /* Pyjector.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23587952140E8B660057D08E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23587953140E8B660057D08E /* Cocoa.framework */,
+				23587955140E8B660057D08E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23587955140E8B660057D08E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23587956140E8B660057D08E /* AppKit.framework */,
+				23587957140E8B660057D08E /* CoreData.framework */,
+				23587958140E8B660057D08E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		23587959140E8B660057D08E /* Pyjector */ = {
+			isa = PBXGroup;
+			children = (
+				2358795A140E8B660057D08E /* Supporting Files */,
+			);
+			path = Pyjector;
+			sourceTree = "<group>";
+		};
+		2358795A140E8B660057D08E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2358795B140E8B660057D08E /* Pyjector-Info.plist */,
+				2358795C140E8B660057D08E /* InfoPlist.strings */,
+				2358795F140E8B660057D08E /* Pyjector-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2358794F140E8B660057D08E /* Pyjector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23587962140E8B660057D08E /* Build configuration list for PBXNativeTarget "Pyjector" */;
+			buildPhases = (
+				2358794C140E8B660057D08E /* Sources */,
+				2358794D140E8B660057D08E /* Frameworks */,
+				2358794E140E8B660057D08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pyjector;
+			productName = Pyjector;
+			productReference = 23587950140E8B660057D08E /* Pyjector.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23587947140E8B660057D08E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Albert Zeyer";
+			};
+			buildConfigurationList = 2358794A140E8B660057D08E /* Build configuration list for PBXProject "Pyjector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 23587945140E8B660057D08E;
+			productRefGroup = 23587951140E8B660057D08E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2358794F140E8B660057D08E /* Pyjector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2358794E140E8B660057D08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2358795E140E8B660057D08E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2358794C140E8B660057D08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2358795C140E8B660057D08E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2358795D140E8B660057D08E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23587960140E8B660057D08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		23587961140E8B660057D08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		23587963140E8B660057D08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pyjector/Pyjector-Prefix.pch";
+				INFOPLIST_FILE = "Pyjector/Pyjector-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		23587964140E8B660057D08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pyjector/Pyjector-Prefix.pch";
+				INFOPLIST_FILE = "Pyjector/Pyjector-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2358794A140E8B660057D08E /* Build configuration list for PBXProject "Pyjector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23587960140E8B660057D08E /* Debug */,
+				23587961140E8B660057D08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23587962140E8B660057D08E /* Build configuration list for PBXNativeTarget "Pyjector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23587963140E8B660057D08E /* Debug */,
+				23587964140E8B660057D08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23587947140E8B660057D08E /* Project object */;
+}
