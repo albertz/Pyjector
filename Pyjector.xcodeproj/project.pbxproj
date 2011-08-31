@@ -10,7 +10,20 @@
 		23587954140E8B660057D08E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23587953140E8B660057D08E /* Cocoa.framework */; };
 		2358795E140E8B660057D08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2358795C140E8B660057D08E /* InfoPlist.strings */; };
 		2358796A140E8C250057D08E /* PyjectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23587969140E8C250057D08E /* PyjectorController.m */; };
+		2364B450140EBA9A009AC854 /* PyTerminal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2364B44F140EBA9A009AC854 /* PyTerminal.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2364B474140ECD38009AC854 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		23587950140E8B660057D08E /* Pyjector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pyjector.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +37,7 @@
 		23587968140E8C250057D08E /* PyjectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PyjectorController.h; sourceTree = "<group>"; };
 		23587969140E8C250057D08E /* PyjectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PyjectorController.m; sourceTree = "<group>"; };
 		2364B44D140EB99B009AC854 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
+		2364B44F140EBA9A009AC854 /* PyTerminal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PyTerminal.framework; path = Library/Frameworks/PyTerminal.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2364B450140EBA9A009AC854 /* PyTerminal.framework in Frameworks */,
 				23587954140E8B660057D08E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +74,7 @@
 		23587952140E8B660057D08E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2364B44F140EBA9A009AC854 /* PyTerminal.framework */,
 				23587953140E8B660057D08E /* Cocoa.framework */,
 				23587955140E8B660057D08E /* Other Frameworks */,
 			);
@@ -105,6 +121,7 @@
 				2358794C140E8B660057D08E /* Sources */,
 				2358794D140E8B660057D08E /* Frameworks */,
 				2358794E140E8B660057D08E /* Resources */,
+				2364B474140ECD38009AC854 /* CopyFiles */,
 			);
 			buildRules = (
 			);
