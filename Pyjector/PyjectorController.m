@@ -87,7 +87,9 @@
 
 + (void)createInterpreterWindow:(id)sender;
 {
-    [[self alloc] init];
+	PyjectorController* w = [self alloc];
+    [w init];
+	[[w window] setLevel: NSFloatingWindowLevel];
 }
 
 + (void)showInfo:(id)sender;
@@ -107,6 +109,7 @@
 {
     self = [super initWithWindow:window];
     if (self) {
+		printf("foobar!!\n");
         // Initialization code here.
     }
     
