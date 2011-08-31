@@ -23,6 +23,7 @@
 		2358795F140E8B660057D08E /* Pyjector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pyjector-Prefix.pch"; sourceTree = "<group>"; };
 		23587968140E8C250057D08E /* PyjectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PyjectorController.h; sourceTree = "<group>"; };
 		23587969140E8C250057D08E /* PyjectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PyjectorController.m; sourceTree = "<group>"; };
+		2364B44D140EB99B009AC854 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		23587945140E8B660057D08E = {
 			isa = PBXGroup;
 			children = (
+				2364B44D140EB99B009AC854 /* install.sh */,
 				23587959140E8B660057D08E /* Pyjector */,
 				23587952140E8B660057D08E /* Frameworks */,
 				23587951140E8B660057D08E /* Products */,
