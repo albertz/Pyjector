@@ -5,6 +5,8 @@
 //  Created by Albert Zeyer on 31.08.11.
 //  Copyright 2011 Albert Zeyer. All rights reserved.
 //
+// see http://code.google.com/p/simbl/wiki/Tutorial
+// loosely based on [FScriptAnywhereSIMBL](https://github.com/albertz/FScriptAnywhereSIMBL )
 
 #import "PyjectorController.h"
 
@@ -63,34 +65,24 @@
             }
         }
         if (insertIntoMenu) {
-            NSMenu *fsaMenu = [[NSMenu allocWithZone: [NSMenu menuZone]] initWithTitle:NSLocalizedStringFromTableInBundle(@"FSA", @"FSA", bundle, @"Title of F-Script Anywhere menu")];
+			NSString* titleStr = @"Python";
+            NSMenu *pyjectorMenu = [[NSMenu allocWithZone: [NSMenu menuZone]] initWithTitle:titleStr];
 			
-            item = [insertIntoMenu insertItemWithTitle: NSLocalizedStringFromTableInBundle(@"FSA", @"FSA", bundle, @"Title of F-Script Anywhere menu") action:NULL keyEquivalent:@"" atIndex:insertLoc];
-            [insertIntoMenu setSubmenu:fsaMenu forItem:item];
-            [fsaMenu release];
+            item = [insertIntoMenu insertItemWithTitle: titleStr action:NULL keyEquivalent:@"" atIndex:insertLoc];
+            [insertIntoMenu setSubmenu:pyjectorMenu forItem:item];
+            [pyjectorMenu release];
 			
             // Add the items for the commands.
-            item = [fsaMenu addItemWithTitle: NSLocalizedStringFromTableInBundle(@"New F-Script Workspace", @"FSA", bundle, @"Title of F-Script Workspace menu item") action:@selector(createInterpreterWindow:) keyEquivalent: @""];
+            item = [pyjectorMenu addItemWithTitle: @"new Python terminal" action:@selector(createInterpreterWindow:) keyEquivalent: @""];
             [item setTarget: self];
-            [fsaMenu addItemWithTitle: NSLocalizedStringFromTableInBundle(@"Associate With Interface", @"FSA", bundle, @"Title of Associate with Interface menu item") action: @selector(FSA_associateWithInterface:) keyEquivalent: @""];
-            [fsaMenu addItem: [NSMenuItem separatorItem]];
-            item = [fsaMenu addItemWithTitle: NSLocalizedStringFromTableInBundle(@"About F-Script Anywhere...", @"FSA", bundle, @"Title of Info Panel menu item") action:@selector(showInfo:) keyEquivalent: @""];
+            [pyjectorMenu addItem: [NSMenuItem separatorItem]];
+            item = [pyjectorMenu addItemWithTitle: @"About Pyjector..." action:@selector(showInfo:) keyEquivalent: @""];
             [item setTarget: self];
 			
             //[[FSAWindowManager sharedManager] setWindowMenu: fsaMenu];
         }
     }
 	
-}
-
-+ (BOOL)validateMenuItem:(id <NSMenuItem>)menuItem
-{
-    SEL sel;
-    NSAssert([menuItem target] == self, @"menu item does not target FSAController!");
-    sel = [menuItem action];
-    if (sel == @selector(showInfo:) || sel == @selector(createInterpreterWindow:)) return YES;
-   // FSALog(@"+[FSAController validateMenuItem:] unknown menu item for validation: %@", menuItem);
-    return NO;
 }
 
 + (void)createInterpreterWindow:(id)sender;
@@ -100,7 +92,7 @@
 
 + (void)showInfo:(id)sender;
 {
-    long result = NSRunInformationalAlertPanel([NSString stringWithFormat: @"About Pyjector (version %s)", "0.1"], @"Pyjector lets you embed a PyTerminal in a Cocoa application while it is running.\n\nFor more information about Pyjector, please visit its Web site %@.", @"OK", @"Visit Web Site", nil, PyjectorURL);
+    long result = NSRunInformationalAlertPanel(@"About Pyjector", @"Pyjector lets you embed a PyTerminal in a Cocoa application while it is running.\n\nFor more information about Pyjector, please visit its Web site %@.", @"OK", @"Visit Web Site", nil, PyjectorURL);
     if (result == NSAlertAlternateReturn) {
         [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: PyjectorURL]];
     }
