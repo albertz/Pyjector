@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		23587954140E8B660057D08E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23587953140E8B660057D08E /* Cocoa.framework */; };
 		2358795E140E8B660057D08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2358795C140E8B660057D08E /* InfoPlist.strings */; };
+		2358796A140E8C250057D08E /* PyjectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23587969140E8C250057D08E /* PyjectorController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,8 @@
 		2358795B140E8B660057D08E /* Pyjector-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pyjector-Info.plist"; sourceTree = "<group>"; };
 		2358795D140E8B660057D08E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2358795F140E8B660057D08E /* Pyjector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pyjector-Prefix.pch"; sourceTree = "<group>"; };
+		23587968140E8C250057D08E /* PyjectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PyjectorController.h; sourceTree = "<group>"; };
+		23587969140E8C250057D08E /* PyjectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PyjectorController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				2358795A140E8B660057D08E /* Supporting Files */,
+				23587968140E8C250057D08E /* PyjectorController.h */,
+				23587969140E8C250057D08E /* PyjectorController.m */,
 			);
 			path = Pyjector;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2358796A140E8C250057D08E /* PyjectorController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +260,7 @@
 				23587964140E8B660057D08E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
