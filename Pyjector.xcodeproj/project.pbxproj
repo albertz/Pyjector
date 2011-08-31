@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230C26B6140EE28E00973261 /* PyTerminalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230C26B5140EE28E00973261 /* PyTerminalWindow.xib */; };
 		23587954140E8B660057D08E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23587953140E8B660057D08E /* Cocoa.framework */; };
 		2358795E140E8B660057D08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2358795C140E8B660057D08E /* InfoPlist.strings */; };
 		2358796A140E8C250057D08E /* PyjectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23587969140E8C250057D08E /* PyjectorController.m */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		230C26B5140EE28E00973261 /* PyTerminalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PyTerminalWindow.xib; sourceTree = "<group>"; };
 		23587950140E8B660057D08E /* Pyjector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pyjector.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		23587953140E8B660057D08E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		23587956140E8B660057D08E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -97,6 +99,7 @@
 				2358795A140E8B660057D08E /* Supporting Files */,
 				23587968140E8C250057D08E /* PyjectorController.h */,
 				23587969140E8C250057D08E /* PyjectorController.m */,
+				230C26B5140EE28E00973261 /* PyTerminalWindow.xib */,
 			);
 			path = Pyjector;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2358795E140E8B660057D08E /* InfoPlist.strings in Resources */,
+				230C26B6140EE28E00973261 /* PyTerminalWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +198,7 @@
 		23587960140E8B660057D08E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -210,7 +214,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -218,7 +221,7 @@
 		23587961140E8B660057D08E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;

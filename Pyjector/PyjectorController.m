@@ -9,6 +9,7 @@
 // loosely based on [FScriptAnywhereSIMBL](https://github.com/albertz/FScriptAnywhereSIMBL )
 
 #import "PyjectorController.h"
+#import <PyTerminal/PyTerminalView.h>
 
 #define PyjectorURL @"https://github.com/albertz/Pyjector"
 
@@ -89,7 +90,6 @@
 {
 	PyjectorController* w = [self alloc];
     [w init];
-	[[w window] setLevel: NSFloatingWindowLevel];
 }
 
 + (void)showInfo:(id)sender;
@@ -105,22 +105,29 @@
     [self installMenu];
 }
 
-- (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-		printf("foobar!!\n");
-        // Initialization code here.
-    }
-    
-    return self;
+- (id)init {
+	
+    self = [super initWithWindowNibName:@"PyTerminalWindow" owner:self];	    
+	[self showWindow: self];
+	//[self loadWindow];
+
+	NSWindow *window = [self window];
+	NSAssert(window != nil, @"Can’t get window!");
+	
+	NSView* v = allocPyTermialView();
+	[v init];
+	[v setAutoresizingMask: NSViewWidthSizable|NSViewHeightSizable];
+	[v setFrame:[[window contentView] bounds]];
+	[[window contentView] addSubview:v];
+	
+	[window makeKeyAndOrderFront: self];
+
+	return self;
 }
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 @end
