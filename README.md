@@ -12,7 +12,7 @@ Installation
 
 * Install IPython. `easy_install ipython` should do.
 
-* Either compile the `Pyjector.bundle` yourself or download it from [here]().
+* Either compile the `Pyjector.bundle` yourself or download it from [here](https://github.com/downloads/albertz/Pyjector/Pyjector.bundle.zip).
 
 * Copy the `Pyjector.bundle` to `~/Library/Application Support/SIMBL/Plugins/`.
 
