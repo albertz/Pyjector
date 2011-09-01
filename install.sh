@@ -5,8 +5,9 @@ cd "$(dirname "$0")"
 xcodebuild
 
 echo "copying .."
-rm -rf ~"/Library/Application Support/SIMBL/Plugins/Pyjector.bundle"
-cp -a "build/Release/Pyjector.bundle" ~"/Library/Application Support/SIMBL/Plugins/"
+D="/System/Library/Application Support/SIMBL/Plugins/"
+sudo rm -rf "$D/Pyjector.bundle"
+sudo cp -a "build/Release/Pyjector.bundle" "$D"
 
 # debugging:
 # defaults write net.culater.SIMBL SIMBLLogLevel -int 0
