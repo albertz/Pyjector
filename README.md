@@ -36,4 +36,7 @@ Current restrictions
 
 * You should note that you don't see the real stdout in the PyTerminal. You only see everything which is printed to `sys.stdout` / `sys.stderr`. Also, the readline lib is a bit buggy in this usage (not sure really what to blame; maybe CPython, maybe readline, maybe PyTerminal; there are countless bugs on this in every of those projects; see the source code for details and references).
 
+* Chrome has introduced a way to block loading any external libraries like SIMBL and also SIMBL plugins like Pyjector. See [here](http://stackoverflow.com/questions/7269704/google-chrome-openscripting-framework-cant-find-entry-point-injecteventhandle/) for details. Chrome does still allow all libraries in `/System`, though. I patched SIMBL [here](https://github.com/albertz/simbl) so that it is installed into `/System/Library/ScriptingAdditions/`. You must also install the SIMBL plugins to `/System/Library/Application Support/SIMBL/Plugins/` to make them work in Chrome.
+
 -- Albert Zeyer, <http://www.az2000.de>
+
