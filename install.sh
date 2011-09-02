@@ -2,6 +2,8 @@
 
 cd "$(dirname "$0")"
 
+[ -x ../PyTerminal/install.sh ] && ../PyTerminal/install.sh
+
 xcodebuild
 
 echo "copying .."
