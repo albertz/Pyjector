@@ -8,7 +8,7 @@ It is basically the same as [FScriptAnywhereSIMBL](https://github.com/albertz/FS
 Installation
 ------------
 
-* Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php).
+* Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php). There is a [patched SIMBLE by me](https://github.com/albertz/simbl) which works around some problems. 
 
 * Install IPython. `easy_install ipython` should do.
 
@@ -30,7 +30,7 @@ Run `Utilities/Console.app`. You will see the menu entry `Python`. Open a new Py
 Current restrictions
 --------------------
 
-* In some cases, the bundle cannot be injected. E.g., for some applications, you might get the error `GC capability mismatch`.
+* With the official SIMBL, for some applications, you might get the error `GC capability mismatch`.
 
 * PyTerminal uses `openpty`. Most `sandboxd`'d applications (e.g. TextEdit) will fail with `deny file-read-data /dev/ptmx`. This can be fixed by providing an alternative PyTerminal implementation which avoids `openpty`.
 
