@@ -19,7 +19,7 @@ Installation
 Example
 -------
 
-Run `Utilities/Console.app`. You will see the menu entry `Python`. Open a new PyTerminal from it. And type:
+Run any application. You will see the menu entry `Python`. Open a new PyTerminal from it. And type:
 
     import AppKit
     app = AppKit.NSApp()
