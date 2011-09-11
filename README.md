@@ -21,9 +21,9 @@ Examples
 
 * Run any application. You will see the menu entry `Python`. Open a new PyTerminal from it. And type:
 
-    import AppKit
-    app = AppKit.NSApp()
-    app.windows()[0].setAlphaValue_(0.8)
+		import AppKit
+		app = AppKit.NSApp()
+		app.windows()[0].setAlphaValue_(0.8)
 
 ![screenshot](https://github.com/albertz/Pyjector/raw/master/Screenshots/Shot1.png)
 
@@ -36,30 +36,30 @@ Notes
 
 * Python runs in its own thread (that is the current [PyTerminal](https://github.com/albertz/PyTerminal) implementation but that is very probably how it always will be). Most applications don't expect calls to their ObjC objects from another than the main thread! You should use `performSelectorOnMainThread_` or similar to avoid multithreading issues. You might want to use code like this:
 
-	import objc
-	NSObject = objc.lookUpClass("NSObject")
-
-	class PyAsyncCallHelper(NSObject):
-		def initWithArgs_(self, f):
-			self.f = f
-			self.ret = None
-			return self
-		def call_(self, o):
-			self.ret = self.f()
-
-	def do_in_mainthread(f, wait=True):
-		helper = PyAsyncCallHelper.alloc().initWithArgs_(f)
-		helper.performSelectorOnMainThread_withObject_waitUntilDone_(helper.call_, None, wait)
-		return helper.ret
-
-	def replaceRunCode(ipshell):
-		runcodeattr = "run_code" if hasattr(ipshell, "run_code") else "runcode"
-		__ipython_orig_runcode = getattr(ipshell, runcodeattr)
-		def __ipython_runcode(code_obj):
-			return do_in_mainthread(lambda: __ipython_orig_runcode(code_obj))
-		setattr(ipshell, runcodeattr, __ipython_runcode)
-	
-	replaceRunCode(__IP) # __IP is the current IPython shell
+		import objc
+		NSObject = objc.lookUpClass("NSObject")
+		
+		class PyAsyncCallHelper(NSObject):
+			def initWithArgs_(self, f):
+				self.f = f
+				self.ret = None
+				return self
+			def call_(self, o):
+				self.ret = self.f()
+		
+		def do_in_mainthread(f, wait=True):
+			helper = PyAsyncCallHelper.alloc().initWithArgs_(f)
+			helper.performSelectorOnMainThread_withObject_waitUntilDone_(helper.call_, None, wait)
+			return helper.ret
+		
+		def replaceRunCode(ipshell):
+			runcodeattr = "run_code" if hasattr(ipshell, "run_code") else "runcode"
+			__ipython_orig_runcode = getattr(ipshell, runcodeattr)
+			def __ipython_runcode(code_obj):
+				return do_in_mainthread(lambda: __ipython_orig_runcode(code_obj))
+			setattr(ipshell, runcodeattr, __ipython_runcode)
+		
+		replaceRunCode(__IP) # __IP is the current IPython shell
 
 
 Current restrictions
