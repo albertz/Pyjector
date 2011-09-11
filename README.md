@@ -16,10 +16,10 @@ Installation
 
 * Copy the `Pyjector.bundle` to `~/Library/Application Support/SIMBL/Plugins/`.
 
-Example
--------
+Examples
+--------
 
-Run any application. You will see the menu entry `Python`. Open a new PyTerminal from it. And type:
+* Run any application. You will see the menu entry `Python`. Open a new PyTerminal from it. And type:
 
     import AppKit
     app = AppKit.NSApp()
@@ -27,12 +27,47 @@ Run any application. You will see the menu entry `Python`. Open a new PyTerminal
 
 ![screenshot](https://github.com/albertz/Pyjector/raw/master/Screenshots/Shot1.png)
 
+* I am hacking a bit around in Chrome. See [here](https://github.com/albertz/chromehacking/).
+
+Notes
+-----
+
+* There is the `objc` module (documentation [here](http://pyobjc.sourceforge.net/)) which gives you the power to interact with the Objective-C runtime.
+
+* Python runs in its own thread (that is the current [PyTerminal](https://github.com/albertz/PyTerminal) implementation but that is very probably how it always will be). Most applications don't expect calls to their ObjC objects from another than the main thread! You should use `performSelectorOnMainThread_` or similar to avoid multithreading issues. You might want to use code like this:
+
+	import objc
+	NSObject = objc.lookUpClass("NSObject")
+
+	class PyAsyncCallHelper(NSObject):
+		def initWithArgs_(self, f):
+			self.f = f
+			self.ret = None
+			return self
+		def call_(self, o):
+			self.ret = self.f()
+
+	def do_in_mainthread(f, wait=True):
+		helper = PyAsyncCallHelper.alloc().initWithArgs_(f)
+		helper.performSelectorOnMainThread_withObject_waitUntilDone_(helper.call_, None, wait)
+		return helper.ret
+
+	def replaceRunCode(ipshell):
+		runcodeattr = "run_code" if hasattr(ipshell, "run_code") else "runcode"
+		__ipython_orig_runcode = getattr(ipshell, runcodeattr)
+		def __ipython_runcode(code_obj):
+			return do_in_mainthread(lambda: __ipython_orig_runcode(code_obj))
+		setattr(ipshell, runcodeattr, __ipython_runcode)
+	
+	replaceRunCode(__IP) # __IP is the current IPython shell
+
+
 Current restrictions
 --------------------
 
-* With the official SIMBL, for some applications, you might get the error `GC capability mismatch`.
+* With the official SIMBL, for some applications, you might get the error `GC capability mismatch`. This should not happen if you use [my patched SIMBLE](https://github.com/albertz/simbl).
 
-* PyTerminal uses `openpty`. Most `sandboxd`'d applications (e.g. TextEdit) will fail with `deny file-read-data /dev/ptmx`. This can be fixed by providing an alternative PyTerminal implementation which avoids `openpty`.
+* PyTerminal uses `openpty`. Most `sandboxd`'d applications (e.g. TextEdit) will fail with `deny file-read-data /dev/ptmx`. This can be fixed by providing an alternative PyTerminal implementation which avoids `openpty`. There is some very buggy and experimental code already which falls back to `socketpair`.
 
 * You should note that you don't see the real stdout in the PyTerminal. You only see everything which is printed to `sys.stdout` / `sys.stderr`. Also, the readline lib is a bit buggy in this usage (not sure really what to blame; maybe CPython, maybe readline, maybe PyTerminal; there are countless bugs on this in every of those projects; see the source code for details and references).
 
