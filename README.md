@@ -61,6 +61,10 @@ Notes
 		
 		replaceRunCode(__IP) # __IP is the current IPython shell
 
+* If you are also injecting [F-Script](https://github.com/albertz/FScriptAnywhereSIMBL), you can open a new browser on any ObjC object like this:
+
+		objc.lookUpClass("FSInterpreter").interpreter().browse_(myObject)
+		
 
 Current restrictions
 --------------------
