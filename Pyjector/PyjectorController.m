@@ -143,9 +143,21 @@
 		PyObject* f = PyString_FromString([pyFile UTF8String]);
 		PyDict_SetItemString(d, "__file__", f);
 		Py_DECREF(f);
-		PyRun_FileExFlags(fp, [pyFile UTF8String], /*start*/Py_file_input, d, d, /*closeit*/1, NULL);
+		const char* argv[] = {"Python", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"] UTF8String], NULL};
+		PySys_SetArgv(sizeof(argv)/sizeof(char*) - 1, (char**)argv);
+		PyObject* v = PyRun_FileExFlags(fp, [pyFile UTF8String], /*start*/Py_file_input, d, d, /*closeit*/1, NULL);
+		if(v == NULL) {
+			if(!PyErr_ExceptionMatches(PyExc_SystemExit)) // ignore SystemExit exception. we don't want to exit
+				PyErr_Print();
+		}
+		PyErr_Clear();
+		Py_XDECREF(v);
+		PyDict_DelItemString(d, "__file__");
+		PyErr_Clear();
 	}
-	PyEval_ReleaseThread(tstate);
+	if(PyThreadState_Swap(NULL) != tstate)
+		NSLog(@"runPythonStartupScript warning: tstate messed up\n");
+	PyEval_ReleaseLock();
 	
 	NSLog(@"runPythonStartupScript finished: %@\n", pyFile);
 }
