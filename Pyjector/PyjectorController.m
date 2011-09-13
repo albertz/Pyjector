@@ -130,10 +130,17 @@
 		return;
 	}
 	NSLog(@"runPythonStartupScript: %@\n", pyFile);
-	PyEval_AcquireLock();
+
+	PyThreadState* tstate = NULL;
+	PyInterpreterState* interp = NULL;
+	interp = PyInterpreterState_Head();
+	tstate = PyThreadState_New(interp);
+	PyEval_AcquireThread(tstate);
 	PyRun_AnyFile(fp, [pyFile UTF8String]);
-	PyEval_ReleaseLock();
+	PyEval_ReleaseThread(tstate);
+	
 	fclose(fp);
+	NSLog(@"runPythonStartupScript finished: %@\n", pyFile);
 }
 
 + (void)runPythonStartupScripts;
