@@ -10,6 +10,7 @@
 
 #import "PyjectorController.h"
 #import <PyTerminal/PyTerminalView.h>
+#import <Python/Python.h>
 
 #define PyjectorURL @"https://github.com/albertz/Pyjector"
 
@@ -121,9 +122,37 @@
     }
 }
 
++ (void)runPythonStartupScript:(NSString*)pyFile;
+{
+	FILE* fp = fopen([pyFile UTF8String], "r");
+	if(!fp) {
+		NSLog(@"runPythonStartupScript: cannot open %@\n", pyFile);
+		return;
+	}
+	NSLog(@"runPythonStartupScript: %@\n", pyFile);
+	PyEval_AcquireLock();
+	PyRun_AnyFile(fp, [pyFile UTF8String]);
+	PyEval_ReleaseLock();
+	fclose(fp);
+}
+
++ (void)runPythonStartupScripts;
+{
+	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES);
+	for (NSString* libraryPath in paths) {
+		NSString* subPath = [libraryPath stringByAppendingPathComponent:@"Application Support/Pyjector/StartupScripts"];
+		NSArray* pyFiles = [[[NSFileManager defaultManager] directoryContentsAtPath:subPath] pathsMatchingExtensions:[NSArray arrayWithObject:@"py"]];
+		for (NSString* pyFile in pyFiles) {
+			[self runPythonStartupScript:[subPath stringByAppendingPathComponent:pyFile]];
+		}
+	}	
+}
+
 + (void)load;
 {
     [self installMenu];
+	initPython();
+	[self runPythonStartupScripts];
 }
 
 - (id)init {

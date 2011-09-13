@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		230C26B6140EE28E00973261 /* PyTerminalWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 230C26B5140EE28E00973261 /* PyTerminalWindow.xib */; };
+		2312766A141F144300BF6A2B /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23127669141F144300BF6A2B /* Python.framework */; };
 		23587954140E8B660057D08E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23587953140E8B660057D08E /* Cocoa.framework */; };
 		2358795E140E8B660057D08E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2358795C140E8B660057D08E /* InfoPlist.strings */; };
 		2358796A140E8C250057D08E /* PyjectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23587969140E8C250057D08E /* PyjectorController.m */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		230C26B5140EE28E00973261 /* PyTerminalWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PyTerminalWindow.xib; sourceTree = "<group>"; };
+		23127669141F144300BF6A2B /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		23587950140E8B660057D08E /* Pyjector.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pyjector.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		23587953140E8B660057D08E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		23587956140E8B660057D08E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2312766A141F144300BF6A2B /* Python.framework in Frameworks */,
 				2364B450140EBA9A009AC854 /* PyTerminal.framework in Frameworks */,
 				23587954140E8B660057D08E /* Cocoa.framework in Frameworks */,
 			);
@@ -76,6 +79,7 @@
 		23587952140E8B660057D08E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23127669141F144300BF6A2B /* Python.framework */,
 				2364B44F140EBA9A009AC854 /* PyTerminal.framework */,
 				23587953140E8B660057D08E /* Cocoa.framework */,
 				23587955140E8B660057D08E /* Other Frameworks */,
