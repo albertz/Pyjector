@@ -135,11 +135,18 @@
 	PyInterpreterState* interp = NULL;
 	interp = PyInterpreterState_Head();
 	tstate = PyThreadState_New(interp);
+
 	PyEval_AcquireThread(tstate);
-	PyRun_AnyFile(fp, [pyFile UTF8String]);
+	{
+		PyObject* m = PyImport_AddModule("__main__");
+		PyObject* d = PyModule_GetDict(m);
+		PyObject* f = PyString_FromString([pyFile UTF8String]);
+		PyDict_SetItemString(d, "__file__", f);
+		Py_DECREF(f);
+		PyRun_FileExFlags(fp, [pyFile UTF8String], /*start*/Py_file_input, d, d, /*closeit*/1, NULL);
+	}
 	PyEval_ReleaseThread(tstate);
 	
-	fclose(fp);
 	NSLog(@"runPythonStartupScript finished: %@\n", pyFile);
 }
 
