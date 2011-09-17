@@ -144,6 +144,8 @@
 		PyDict_SetItemString(d, "__file__", f);
 		Py_DECREF(f);
 		{
+			// In some cases, [NSBundle mainBundle] is messed up, e.g. when the binary path is strange.
+			// The info via NSRunningApplication is correct, though.
 			NSString* bundleIdentifier = nil;
 			NSRunningApplication* app = [NSRunningApplication runningApplicationWithProcessIdentifier:getpid()];
 			if(app)
