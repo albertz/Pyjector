@@ -144,9 +144,12 @@
 		PyDict_SetItemString(d, "__file__", f);
 		Py_DECREF(f);
 		{
-			NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-			NSString* bundleIdentifier = [infoDict objectForKey:@"CFBundleIdentifier"];
-			if(bundleIdentifier == nil) bundleIdentifier = @""; // TODO: any other way to get it?				
+			NSString* bundleIdentifier = nil;
+			NSRunningApplication* app = [NSRunningApplication runningApplicationWithProcessIdentifier:getpid()];
+			if(app)
+				bundleIdentifier = [app bundleIdentifier];
+			if(!bundleIdentifier)
+				bundleIdentifier = @"";				
 			PyObject* sysargv = PyList_New(2);
 			PyList_SetItem(sysargv, 0, PyString_FromString("Python"));
 			PyList_SetItem(sysargv, 1, PyString_FromString([bundleIdentifier UTF8String]));
