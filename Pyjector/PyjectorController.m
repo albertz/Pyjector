@@ -143,8 +143,16 @@
 		PyObject* f = PyString_FromString([pyFile UTF8String]);
 		PyDict_SetItemString(d, "__file__", f);
 		Py_DECREF(f);
-		const char* argv[] = {"Python", [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"] UTF8String], NULL};
-		PySys_SetArgv(sizeof(argv)/sizeof(char*) - 1, (char**)argv);
+		{
+			NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+			NSString* bundleIdentifier = [infoDict objectForKey:@"CFBundleIdentifier"];
+			if(bundleIdentifier == nil) bundleIdentifier = @""; // TODO: any other way to get it?				
+			PyObject* sysargv = PyList_New(2);
+			PyList_SetItem(sysargv, 0, PyString_FromString("Python"));
+			PyList_SetItem(sysargv, 1, PyString_FromString([bundleIdentifier UTF8String]));
+			PySys_SetObject("argv", sysargv);
+			Py_DECREF(sysargv);
+		}
 		PyObject* v = PyRun_FileExFlags(fp, [pyFile UTF8String], /*start*/Py_file_input, d, d, /*closeit*/1, NULL);
 		if(v == NULL) {
 			if(!PyErr_ExceptionMatches(PyExc_SystemExit)) // ignore SystemExit exception. we don't want to exit
